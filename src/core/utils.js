@@ -3,8 +3,12 @@ import { WebGLRenderer, Color, PerspectiveCamera, Clock } from 'three';
 /**
  * Make and Configure a WebGLRenderer
  */
-function makeRenderer(clearColor = '#21282a') {
-	const renderer = new WebGLRenderer();
+function makeRenderer(clearColor = '#21282a', alpha = false) {
+	const renderer = new WebGLRenderer({
+		antialias: true,
+		alpha,
+	});
+
 	renderer.setSize(innerWidth, innerHeight);
 	renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 	renderer.setClearColor(new Color(clearColor), 1);
